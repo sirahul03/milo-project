@@ -1,4 +1,4 @@
-# Milo goes to college
+#My Milo goes to college
 Use this project template to create a Milo site.
 
 ## Steps
