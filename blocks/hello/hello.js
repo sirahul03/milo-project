@@ -15,4 +15,15 @@ export default async function init(el) {
     if (textArr[0]) window.gsap.to(helloEl, { x: 200 });
     if (textArr[1]) window.gsap.to(nameEl, { x: 400 });
   }
+  const qResp = await fetch('/blog/query-index.json');
+  const qJson = await qResp.json();
+  console.log(qJson);
+  const list = createTag('ul', { class: 'blog-list-container' });
+  for (const post of qJson.data) {
+    //const resp = await fetch(`${post.path}.plain.html`);
+    //if (!resp.ok) return;
+    const li = createTag('li', { class: 'blog-list-item' }, post.description);
+    list.append(li);
+  }
+  el.append(list);
 }
